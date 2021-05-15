@@ -35,6 +35,10 @@ It will eleminate the need for a full-chain initial block download.
 As a side effect, it also makes it possible to significantly increase block size (since nobody needs to store the full-chain anymore, everyone can be a pruned node).
 
 ==Specification==
+''How can a node figure out what is the right chain tip without being able to validate that block, which requires validating that this UTXO-hash is correct?''
+
+The UTXO being transmitted to a new node should contain the block number of the corresponding UTXO (and blockchain starting from that point).Then when a new node wants to verify it, they check if the starting block+whole chain is valid like they do currently. The older the UTXO set (and thus longer the chain), the more certain a new node can be that the UTXO has not been altered.
+
 Technical specifications TBD
 
 ==Backwards Compatibility==
