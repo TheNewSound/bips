@@ -20,7 +20,7 @@ This way, only the latest N blocks and latest N UTXO-set needs to be stored & di
 
 Most nodes can store the UTXO data, which does not grow rapidly.
 Verification of a freshly downloaded UTXO set (by new nodes) happens by looking at the UTXO-hash in the corresponding block on the chain.
-Miners cannot include a false UTXO hash in a block because it will be rejected by nodes (This will require nodes and miners to hash the UTXO for every new block).
+Miners cannot include a false UTXO hash in a block because it will be rejected by nodes (This will require nodes and miners to hash the UTXO+blocknumber for every new block).
 Even though the UTXO set is 4GB or so, a solution can be made to make it easier for nodes and miners to hash the 4GB UTXO set. 
 For example the use of a Merkle Tree: keeping most hashes the same every new block, submitting the tree-root UTXO hash of previous block in a new block.
 The Merkle Tree of the UTXO data does not have to be a binary tree: it may be altered to best fit its purpose (repetitively hashing a large file with ''(random?)'' local changes)
